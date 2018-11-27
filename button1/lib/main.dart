@@ -12,17 +12,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _State extends State<MyApp> {
-  int _value = 0;
+  String _value = '';
 
-  void _add() {
+  void _onChange(String value) {
     setState(() {
-      _value++;
+      _value = 'Change: ${value}';
     });
   }
 
-  void _subtract() {
+  void _onSubmit(String value) {
     setState(() {
-      _value--;
+      _value = 'Submit: ${value}';
     });
   }
 
@@ -37,9 +37,19 @@ class _State extends State<MyApp> {
         child: new Center(
           child: new Column(
             children: <Widget>[
-              new Text('Value = ${_value}'),
-              new IconButton(icon: new Icon(Icons.add), onPressed: _add,),
-              new IconButton(icon: new Icon(Icons.remove), onPressed: _subtract,),
+              new Text(_value),
+              new TextField(
+                decoration: new InputDecoration(
+                  labelText: 'Hello',
+                  hintText: 'Hint',
+                  icon: new Icon(Icons.people)
+                ),
+                autocorrect: true,
+                autofocus: true,
+                keyboardType: TextInputType.text,
+                onChanged: _onChange,
+                onSubmitted: _onSubmit,
+              )
             ],
           ),
         ),
