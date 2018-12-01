@@ -23,32 +23,13 @@ class _State extends State<MyApp> {
         child: new Center(
           child: new Column(
             children: <Widget>[
-              new Card(
-                child: new Container(padding: new EdgeInsets.all(32.0),
-                child: new Column(
-                  children: <Widget>[
-                    new Text('Hello World!'),
-                    new Text('How are you?')
-                  ],
-                ),),
+              new Text('Hello World!'),
+              new Expanded(
+                child: new Image.asset('images/amanda-1.jpg'),
               ),
-              new Card(
-                child: new Container(padding: new EdgeInsets.all(32.0),
-                child: new Column(
-                  children: <Widget>[
-                    new Text('Hello World!'),
-                    new Text('How are you?')
-                  ],
-                ),),
-              ),
-              new Card(
-                child: new Container(padding: new EdgeInsets.all(32.0),
-                child: new Column(
-                  children: <Widget>[
-                    new Text('Hello World!'),
-                    new Text('How are you?')
-                  ],
-                ),),
+              new Expanded(
+                child:
+                    new Image.network('http://voidrealms.com/images/smile.jpg'),
               )
             ],
           ),
